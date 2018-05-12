@@ -17,3 +17,4 @@ end
 
 node.run_state[cookbook_name] = {}
 node.run_state[cookbook_name]['hosts'] = zookeeper_cluster['hosts']
+node.run_state[cookbook_name]['my_id'] = zookeeper_cluster['my_id']

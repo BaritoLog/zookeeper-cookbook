@@ -9,3 +9,4 @@
 include_recipe "#{cookbook_name}::search"
 include_recipe "#{cookbook_name}::user"
 include_recipe "#{cookbook_name}::install"
+include_recipe "#{cookbook_name}::config"

@@ -35,3 +35,27 @@ describe file('/opt/zookeeper/zookeeper.jar') do
   its('mode') { should cmp '0664' }
 end
 
+describe directory('/var/opt/zookeeper/log') do
+  its('mode') { should cmp '0755' }
+  its('owner') { should eq 'zookeeper' }
+  its('group') { should eq 'zookeeper' }
+end
+
+describe directory('/var/opt/zookeeper/lib') do
+  its('mode') { should cmp '0755' }
+  its('owner') { should eq 'zookeeper' }
+  its('group') { should eq 'zookeeper' }
+end
+
+describe file('/opt/zookeeper/conf/zoo.cfg') do
+  its('mode') { should cmp '0644' }
+end
+
+describe file('/opt/zookeeper/conf/log4j.properties') do
+  its('mode') { should cmp '0644' }
+end
+
+describe file('/var/opt/zookeeper/lib/myid') do
+  its('mode') { should cmp '0644' }
+end
+
