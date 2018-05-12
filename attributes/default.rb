@@ -20,6 +20,12 @@ default[cookbook_name]['size'] = 3
 default[cookbook_name]['user'] = 'zookeeper'
 default[cookbook_name]['group'] = 'zookeeper'
 
+# Java package to install by platform
+default[cookbook_name]['java'] = {
+  'centos' => 'java-1.8.0-openjdk-headless',
+  'ubuntu' => 'openjdk-8-jdk-headless'
+}
+
 # zookeeper version
 default[cookbook_name]['version'] = '3.4.12'
 version = node[cookbook_name]['version']

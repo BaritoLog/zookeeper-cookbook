@@ -19,6 +19,10 @@ describe package('tar') do
   it { should be_installed }
 end
 
+describe package('openjdk-8-jdk-headless') do
+  it { should be_installed }
+end
+
 describe directory('/opt') do
   its('mode') { should cmp '0755' }
   its('owner') { should eq 'root' }

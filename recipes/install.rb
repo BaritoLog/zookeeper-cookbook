@@ -8,9 +8,32 @@
 
 package_retries = node[cookbook_name]['package_retries']
 
+# Update apt packages
+apt_update 'update'
+
 # tar may not be installed by default
 package %w[tar] do
   retries package_retries unless package_retries.nil?
+end
+
+# Java is needed by Kafka, can install it with package
+java = node[cookbook_name]['java']
+# java installation can be intentionally ignored by setting the whole key to ''
+unless java.to_s.empty?
+  java_package = java[node['platform']]
+
+  if java_package.to_s.empty?
+    Chef::Log.warn  "No java specified for the platform #{node['platform']}, "\
+                    'java will not be installed'
+
+    Chef::Log.warn  'Please specify a java package name if you want to '\
+                    'install java using this cookbook.'
+  else
+    package_retries = node[cookbook_name]['package_retries']
+    package java_package do
+      retries package_retries unless package_retries.nil?
+    end
+  end
 end
 
 # Create prefix directories
