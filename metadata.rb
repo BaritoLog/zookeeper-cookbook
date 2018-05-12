@@ -18,3 +18,5 @@ issues_url 'https://github.com/BaritoLog/zookeeper-cookbook/issues'
 # a Supermarket.
 #
 source_url 'https://github.com/BaritoLog/zookeeper-cookbook'
+
+depends 'ark'
