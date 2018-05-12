@@ -16,7 +16,10 @@ end
 
 # Get cluster list (from search), used in main config
 cluster = node.run_state.dig(cookbook_name, 'hosts')
-return if cluster.nil? # No one, we wait
+if cluster.nil?
+  node.run_state[cookbook_name]['abort?'] = true
+  return
+end
 
 # Generate config
 config = node[cookbook_name]['config'].dup

@@ -63,3 +63,8 @@ describe file('/var/opt/zookeeper/lib/myid') do
   its('mode') { should cmp '0644' }
 end
 
+describe systemd_service('zookeeper') do
+  it { should be_installed }
+  it { should be_enabled }
+  it { should be_running }
+end

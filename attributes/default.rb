@@ -88,6 +88,21 @@ default[cookbook_name]['log4j'] = {
 }
 # rubocop:enable Style/FormatStringToken
 
+# Systemd unit file path
+default[cookbook_name]['unit_path'] = '/etc/systemd/system'
+# Restart Zookeeper service if a configuration file change
+default[cookbook_name]['auto_restart'] = true
+
+# JVM configuration
+# {key => value} which gives "key=value" or just "key" if value is nil
+default[cookbook_name]['jvm_opts'] = {
+  '-Dcom.sun.management.jmxremote' => nil,
+  '-Dcom.sun.management.jmxremote.authenticate' => false,
+  '-Dcom.sun.management.jmxremote.ssl' => false,
+  '-Dcom.sun.management.jmxremote.port' => 2191,
+  '-Djava.rmi.server.hostname' => node['fqdn']
+}
+
 # Configure retries for the package resources, default = global default (0)
 # (mostly used for test purpose)
 default[cookbook_name]['package_retries'] = nil

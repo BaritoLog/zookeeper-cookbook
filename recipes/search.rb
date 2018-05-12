@@ -8,13 +8,13 @@
 ::Chef::Recipe.send(:include, ClusterSearch)
 
 # Looking for zookeeper nodes
-zookeeper_cluster = cluster_search(node[cookbook_name])
+cluster = cluster_search(node[cookbook_name])
 node.run_state[cookbook_name] ||= {}
-if zookeeper_cluster.nil?
+if cluster.nil?
   node.run_state[cookbook_name]['abort?'] = true
   return
 end
 
 node.run_state[cookbook_name] = {}
-node.run_state[cookbook_name]['hosts'] = zookeeper_cluster['hosts']
-node.run_state[cookbook_name]['my_id'] = zookeeper_cluster['my_id']
+node.run_state[cookbook_name]['hosts'] = cluster['hosts']
+node.run_state[cookbook_name]['my_id'] = cluster['my_id']
