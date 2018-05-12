@@ -22,3 +22,7 @@ suites:
     verifier:
       inspec_tests:
         - test/integration/default
+    attributes:
+      zookeeper-cookbook:
+        role: zookeeper-cookbook
+        hosts: ['default-ubuntu-1604.vagrantup.com']
