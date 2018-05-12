@@ -7,3 +7,8 @@
 #
 
 cookbook_name = 'zookeeper-cookbook'
+
+# User and group of zookeeper process
+default[cookbook_name]['user'] = 'zookeeper'
+default[cookbook_name]['group'] = 'zookeeper'
+
