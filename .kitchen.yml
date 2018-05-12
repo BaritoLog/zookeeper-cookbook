@@ -16,7 +16,10 @@ platforms:
   - name: ubuntu-16.04
 
 suites:
-  - name: default
+# Generate different types of nodes
+<% { 'zookeeper' => 3 }.each do |name, n| %>
+  <% ("01".."#{n}").each do |i| %>
+  - name: <%= name %>-<%= i %>
     run_list:
       - recipe[zookeeper-cookbook::default]
     verifier:
@@ -25,5 +28,7 @@ suites:
     attributes:
       zookeeper-cookbook:
         role: zookeeper-cookbook
-        hosts: ['default-ubuntu-1604.vagrantup.com']
+        hosts: ['zookeeper-01-ubuntu-1604.vagrantup.com', 'zookeeper-02-ubuntu-1604.vagrantup.com', 'zookeeper-03-ubuntu-1604.vagrantup.com']
         package_retries: 1
+  <% end %>
+<% end %>
