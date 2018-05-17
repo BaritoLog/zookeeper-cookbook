@@ -1,12 +1,12 @@
 #
-# Cookbook:: zookeeper-cookbook
+# Cookbook:: zookeeper
 # Spec:: default
 #
 # Copyright:: 2018, BaritoLog.
 
 require 'spec_helper'
 
-describe 'zookeeper-cookbook::default' do
+describe 'zookeeper::default' do
   context 'When all attributes are default, on Ubuntu 16.04' do
     let(:chef_run) do
       # for a complete list of available platforms and versions see:

@@ -1,12 +1,12 @@
 #
-# Cookbook:: zookeeper-cookbook
+# Cookbook:: zookeeper
 # Attribute:: default
 #
 # Copyright:: 2018, BaritoLog.
 #
 #
 
-cookbook_name = 'zookeeper-cookbook'
+cookbook_name = 'zookeeper'
 
 # Cluster configuration with cluster-search
 # Role used by the search to find other nodes of the cluster

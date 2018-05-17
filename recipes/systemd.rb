@@ -1,5 +1,5 @@
 #
-# Cookbook:: zookeeper-cookbook
+# Cookbook:: zookeeper
 # Recipe:: systemd 
 #
 # Copyright:: 2018, BaritoLog.
@@ -22,7 +22,7 @@ service_config = {
 }
 
 # Install service file, reload systemd daemon if necessary
-execute 'zookeeper-cookbook:systemd-reload' do
+execute 'zookeeper:systemd-reload' do
   command 'systemctl daemon-reload'
   action :nothing
 end
@@ -32,7 +32,7 @@ template unit_file do
   variables service_config
   mode '0644'
   source 'zookeeper.service.erb'
-  notifies :run, 'execute[zookeeper-cookbook:systemd-reload]', :immediately
+  notifies :run, 'execute[zookeeper:systemd-reload]', :immediately
 end
 
 # Configuration files to be subscribed

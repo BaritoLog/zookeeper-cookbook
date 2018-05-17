@@ -1,5 +1,5 @@
 #
-# Cookbook:: zookeeper-cookbook
+# Cookbook:: zookeeper
 # Recipe:: search 
 #
 # Copyright:: 2018, BaritoLog.

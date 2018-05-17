@@ -1,4 +1,4 @@
-name 'zookeeper-cookbook'
+name 'zookeeper'
 maintainer 'BaritoLog'
 maintainer_email 'you@example.com'
 license 'MIT'
