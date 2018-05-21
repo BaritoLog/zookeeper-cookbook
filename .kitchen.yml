@@ -18,7 +18,7 @@ platforms:
 suites:
 # Generate different types of nodes
 <% { 'zookeeper' => 2 }.each do |name, n| %>
-  <% ("01".."#{n}").each do |i| %>
+  <% ("01".."#{n}").each_with_index do |i, idx| %>
   - name: <%= name %>-<%= i %>
     run_list:
       - recipe[zookeeper::default]
@@ -28,7 +28,8 @@ suites:
     attributes:
       zookeeper:
         role: zookeeper
-        hosts: ['zookeeper-01-ubuntu-1604.vagrantup.com', 'zookeeper-02-ubuntu-1604.vagrantup.com', 'zookeeper-03-ubuntu-1604.vagrantup.com']
+        hosts: ['zookeeper-01-ubuntu-1604.vagrantup.com', 'zookeeper-02-ubuntu-1604.vagrantup.com']
+        my_id: <%= idx + 1 %>
         package_retries: 1
   <% end %>
 <% end %>

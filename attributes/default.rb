@@ -8,13 +8,9 @@
 
 cookbook_name = 'zookeeper'
 
-# Cluster configuration with cluster-search
-# Role used by the search to find other nodes of the cluster
-default[cookbook_name]['role'] = cookbook_name
-# Hosts of the cluster, deactivate search if not empty
+# Hosts of the cluster
 default[cookbook_name]['hosts'] = []
-# Expected size of the cluster. Ignored if hosts is not empty
-default[cookbook_name]['size'] = 3
+default[cookbook_name]['my_id'] = []
 
 # User and group of zookeeper process
 default[cookbook_name]['user'] = 'zookeeper'

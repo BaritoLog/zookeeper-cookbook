@@ -4,17 +4,13 @@
 #
 # Copyright:: 2018, BaritoLog.
 
-# Use ClusterSearch
-::Chef::Recipe.send(:include, ClusterSearch)
-
-# Looking for zookeeper nodes
-cluster = cluster_search(node[cookbook_name])
-node.run_state[cookbook_name] ||= {}
-if cluster.nil?
+# Don't continue if these variables are empty
+node.run_state[cookbook_name] = {}
+if node[cookbook_name]['hosts'].empty? || !node[cookbook_name]['my_id'].is_a?(Integer)
   node.run_state[cookbook_name]['abort?'] = true
   return
 end
 
-node.run_state[cookbook_name] = {}
-node.run_state[cookbook_name]['hosts'] = cluster['hosts']
-node.run_state[cookbook_name]['my_id'] = cluster['my_id']
+# Keep it simple for now
+node.run_state[cookbook_name]['hosts'] = node[cookbook_name]['hosts']
+node.run_state[cookbook_name]['my_id'] = node[cookbook_name]['my_id']
