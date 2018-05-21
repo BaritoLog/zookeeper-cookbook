@@ -5,7 +5,7 @@
 # Copyright:: 2018, BaritoLog.
 
 # Don't continue if these variables are empty
-node.run_state[cookbook_name] = {}
+node.run_state[cookbook_name] ||= {}
 if node[cookbook_name]['hosts'].empty? || !node[cookbook_name]['my_id'].is_a?(Integer)
   node.run_state[cookbook_name]['abort?'] = true
   return
