@@ -99,6 +99,9 @@ default[cookbook_name]['jvm_opts'] = {
   '-Djava.rmi.server.hostname' => node['fqdn']
 }
 
+# Service that will be registered to Consul
+default[cookbook_name]['registered_service'] = []
+
 # Configure retries for the package resources, default = global default (0)
 # (mostly used for test purpose)
 default[cookbook_name]['package_retries'] = nil
