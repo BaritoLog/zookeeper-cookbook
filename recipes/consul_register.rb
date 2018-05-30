@@ -7,18 +7,14 @@
 #
 
 config = {
-  "Node": node['hostname'],
-  "Service": {
-    "ID": "#{node['hostname']}-zookeeper",
-    "Service": "zookeeper",
-    "Tags": ["app:"],
-    "Address": node['ipaddress'],
-    "Meta": {
-        "http_schema": "http"
-    },
-    "Port": node[cookbook_name]['config']['clientPort']
-  },
-  "SkipNodeUpdate": true
+  "name": "#{node['hostname']}-zookeeper",
+  "tags": ["app:"],
+  "address": node['ipaddress'],
+  "port": node[cookbook_name]['config']['clientPort'],
+  "service": "zookeeper",
+  "meta": {
+    "http_schema": "http"
+  }
 }
 
 consul_register_service "zookeeper" do
