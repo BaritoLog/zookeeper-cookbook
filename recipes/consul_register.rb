@@ -7,11 +7,11 @@
 #
 
 config = {
-  "name": "#{node['hostname']}-zookeeper",
+  "id": "#{node['hostname']}-zookeeper",
+  "name": "zookeeper",
   "tags": ["app:"],
   "address": node['ipaddress'],
   "port": node[cookbook_name]['config']['clientPort'],
-  "service": "zookeeper",
   "meta": {
     "http_schema": "http"
   }
