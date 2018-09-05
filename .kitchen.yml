@@ -33,7 +33,7 @@ suites:
     attributes:
       zookeeper:
         role: zookeeper
-        hosts: ['zookeeper-01-ubuntu-1604.vagrantup.com', 'zookeeper-02-ubuntu-1604.vagrantup.com']
+        hosts: ['zookeeper-01-ubuntu-1804.vagrantup.com', 'zookeeper-02-ubuntu-1804.vagrantup.com']
         my_id: <%= idx + 1 %>
         package_retries: 1
   <% end %>
