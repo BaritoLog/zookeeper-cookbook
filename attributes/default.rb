@@ -12,6 +12,14 @@ cookbook_name = 'zookeeper'
 default[cookbook_name]['hosts'] = []
 default[cookbook_name]['my_id'] = []
 
+# Yggdrasil configuration
+default[cookbook_name]['yggdrasil']['enabled'] = false
+default[cookbook_name]['yggdrasil']['host'] = ''
+default[cookbook_name]['yggdrasil']['api_version'] = 'v2'
+default[cookbook_name]['yggdrasil']['token'] = ''
+default[cookbook_name]['yggdrasil']['namespace'] = ''
+default[cookbook_name]['yggdrasil']['overrides'] = ''
+
 # User and group of zookeeper process
 default[cookbook_name]['user'] = 'zookeeper'
 default[cookbook_name]['group'] = 'zookeeper'
