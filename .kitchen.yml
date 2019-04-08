@@ -38,7 +38,7 @@ suites:
         package_retries: 1
         yggdrasil:
           enabled: false
-          hosts: ''
+          host: ''
           api_version: 'v2'
           token: ''
           namespace: ''
