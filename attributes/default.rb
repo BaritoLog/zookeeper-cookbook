@@ -19,6 +19,7 @@ default[cookbook_name]['yggdrasil']['api_version'] = 'v2'
 default[cookbook_name]['yggdrasil']['token'] = ''
 default[cookbook_name]['yggdrasil']['namespace'] = ''
 default[cookbook_name]['yggdrasil']['overrides'] = ''
+default[cookbook_name]['yggdrasil']['key_name'] = "#{cookbook_name}_config"
 
 # User and group of zookeeper process
 default[cookbook_name]['user'] = 'zookeeper'
