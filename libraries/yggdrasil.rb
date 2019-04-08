@@ -19,8 +19,5 @@ class Yggdrasil
     raise 'Failed to fetch config from yggdrasil!' unless response_body['success']
     response_body['data']
   end
-
 end
-
-
 
