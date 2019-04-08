@@ -38,10 +38,11 @@ suites:
         package_retries: 1
         yggdrasil:
           enabled: false
-          host: ''
+          hosts: ''
           api_version: 'v2'
           token: ''
           namespace: ''
           overrides: ''
+          configure_etc_hosts: false
   <% end %>
 <% end %>
