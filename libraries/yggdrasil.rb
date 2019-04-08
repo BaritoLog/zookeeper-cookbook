@@ -1,12 +1,13 @@
 class Yggdrasil
-  def initialize(host,api_version,token)
+  def initialize(host,port,api_version,token)
       @host = host
+      @port = port
       @api_version = api_version
       @token = token
   end
 
   def fetch_configs(namespace, overrides)
-    uri = URI("http://#{@host}:80/#{@api_version}/configurations/#{namespace}/latest?q=#{overrides}")
+    uri = URI("http://#{@host}:#{@port}/#{@api_version}/configurations/#{namespace}/latest?q=#{overrides}")
     response = nil
 
     Net::HTTP.start(uri.hostname, uri.port, :use_ssl => uri.scheme == 'https') do |http|
