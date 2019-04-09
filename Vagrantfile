@@ -70,5 +70,7 @@ Vagrant.configure("2") do |config|
     curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | bash
     sudo apt-get update
     apt-get install -y curl wget ruby rubygems zulu-8 lxd gitlab-runner
+    newgrp lxd
+    adduser vagrant lxd
   SHELL
 end
