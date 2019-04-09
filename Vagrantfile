@@ -72,5 +72,6 @@ Vagrant.configure("2") do |config|
     apt-get install -y curl wget ruby rubygems zulu-8 lxd gitlab-runner
     newgrp lxd
     adduser vagrant lxd
+    lxd init --auto --storage-backend=btrfs --storage-pool=default --storage-create-loop=15
   SHELL
 end
