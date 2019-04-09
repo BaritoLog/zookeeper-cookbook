@@ -11,7 +11,7 @@ variables:
 
 before_script:
   - curl -s https://raw.githubusercontent.com/BaritoLog/cx-scripts/master/gitlabci-install-packer.sh | bash
-  - curl -s https://github.com/jasoet/kscript-collections/releases/download/1.0.0/SimpleServerMock
+  - wget https://github.com/jasoet/kscript-collections/releases/download/1.0.0/SimpleServerMock
   - chmod +x SimpleServerMock
 
 validate:
