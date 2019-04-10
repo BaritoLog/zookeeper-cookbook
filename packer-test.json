@@ -9,11 +9,12 @@
     {
       "type": "lxd",
       "image": "ubuntu:18.04",
+      "name": "zookeeper-test",
       "output_image": "{{user `output_image`}}-test",
       "publish_properties": {
-        "version": "{{user `build_version`}}",
-        "commit_sha": "{{user `build_commit_sha`}}",
-        "description": "LXD image for zookeeper"
+        "version": "{{user `build_version`}}-test",
+        "commit_sha": "{{user `build_commit_sha`}}-test",
+        "description": "LXD image for zookeeper test"
       },
       "init_sleep": "5"
     }
