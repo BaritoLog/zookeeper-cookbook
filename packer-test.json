@@ -1,0 +1,48 @@
+{
+  "variables": {
+    "build_version": "{{env `BUILD_VERSION`}}",
+    "build_commit_sha": "{{env `BUILD_COMMIT_SHA`}}",
+    "output_image": "{{env `OUTPUT_IMAGE`}}",
+    "cookbook_paths": "{{env `COOKBOOK_PATHS`}}"
+  },
+  "builders": [
+    {
+      "type": "lxd",
+      "image": "ubuntu:18.04",
+      "output_image": "{{user `output_image`}}-test",
+      "publish_properties": {
+        "version": "{{user `build_version`}}",
+        "commit_sha": "{{user `build_commit_sha`}}",
+        "description": "LXD image for zookeeper"
+      },
+      "init_sleep": "5"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "chef-solo",
+      "cookbook_paths": [
+        "{{user `cookbook_paths`}}"
+      ],
+      "run_list": [
+        "recipe[zookeeper::default]"
+      ],
+      "json": {
+        "zookeeper": {
+          "role": "zookeeper",
+          "my_id": 3,
+          "package_retries": 1,
+          "yggdrasil": {
+            "enabled": true,
+            "host": "localhost",
+            "port": 9797,
+            "token": "82772982726267627",
+            "namespace": "zookeeper_service",
+            "overrides": "integration",
+            "configure_etc_hosts": true
+          }
+        }
+      }
+    }
+  ]
+}
