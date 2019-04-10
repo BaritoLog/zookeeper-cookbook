@@ -1,7 +1,6 @@
-image: azul/zulu-openjdk:8
-
 stages:
   - validate
+  - test
   - build-base
 
 variables:
@@ -13,13 +12,25 @@ variables:
 
 before_script:
   - curl -s https://raw.githubusercontent.com/BaritoLog/cx-scripts/master/gitlabci-install-packer.sh | bash
-  - curl -s https://github.com/jasoet/kscript-collections/releases/download/1.0.0/SimpleServerMock
+  - wget https://github.com/jasoet/kscript-collections/releases/download/1.0.0/SimpleServerMock
   - chmod +x SimpleServerMock
 
 validate:
   stage: validate
   script:
     - ./packer/packer validate ./packer.json
+  tags:
+    - bionic
+
+test:
+  stage: test
+  variables:
+    TEST_CONFIG_PATH: ./packer-test.json
+  script:
+    - ./SimpleServerMock -p 9797 -c mock-ygg.yml &> mock.log &
+    - export MOCK_PID=$!
+    - ./packer/packer build $TEST_CONFIG_PATH
+    - kill $MOCK_PID
   tags:
     - bionic
 

@@ -27,7 +27,7 @@ test:
   variables:
     TEST_CONFIG_PATH: ./packer-test.json
   script:
-    - ./SimpleServerMock -p 9797 -c mock-ygg.yml &> mock.log &
+    - ./SimpleServerMock -p 9797 -c mock-ygg.yml &> /dev/null &
     - export MOCK_PID=$!
     - ./packer/packer build $TEST_CONFIG_PATH
     - kill $MOCK_PID
