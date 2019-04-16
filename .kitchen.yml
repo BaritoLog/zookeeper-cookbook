@@ -1,6 +1,11 @@
 ---
 driver:
   name: vagrant
+  provision: true
+  vagrantfiles:
+    - Vagrantfile.rb
+  synced_folders:
+    - ["config", "/config"]
 
 provisioner:
   name: chef_zero
@@ -37,12 +42,13 @@ suites:
         my_id: <%= idx + 1 %>
         package_retries: 1
         yggdrasil:
-          enabled: false
-          host: ''
+          enabled: true
+          host: 'localhost'
+          port: '9797'
           api_version: 'v2'
-          token: ''
-          namespace: ''
-          overrides: ''
+          token: 'TOKENRANDOM'
+          namespace: 'zookeeper_service'
+          overrides: 'none'
           configure_etc_hosts: false
   <% end %>
 <% end %>

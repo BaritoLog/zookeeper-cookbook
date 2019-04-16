@@ -64,14 +64,9 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
+    curl -s https://raw.githubusercontent.com/BaritoLog/cx-scripts/master/vagrant-ubuntu-install-mockserver.sh | bash
     apt-get update
-    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
-    apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
-    curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | bash
-    sudo apt-get update
-    apt-get install -y curl wget ruby rubygems zulu-8 lxd gitlab-runner
-    newgrp lxd
-    adduser vagrant lxd
-    lxd init --auto --storage-backend=btrfs --storage-pool=default --storage-create-loop=15
+    apt-get install -y openjdk-11-jre-headless
+    /usr/local/bin/SimpleServerMock -p 9797 -c /config/mockserver-config.yaml &> /root/mock.log &
   SHELL
 end
