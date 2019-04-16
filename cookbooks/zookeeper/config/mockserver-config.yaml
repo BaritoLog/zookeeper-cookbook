@@ -4,7 +4,7 @@ configs:
       {
         "success": true,
         "data": {
-          "zookeeper_hosts": "[{\"hostname\":\"localhost\",\"ip\":\"127.0.0.1\"}]"
+          "zookeeper_hosts": "[{\"hostname\":\"zookeeper-01-ubuntu-1804.vagrantup.com\",\"ip\":\"0.0.0.0\"},{\"hostname\":\"zookeeper-02-ubuntu-1804.vagrantup.com\",\"ip\":\"0.0.0.0\"}]"
         }
       }
     contentType: application/json
