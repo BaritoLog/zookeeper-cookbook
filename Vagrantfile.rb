@@ -65,8 +65,6 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     curl -s https://raw.githubusercontent.com/BaritoLog/cx-scripts/master/vagrant-ubuntu-install-mockserver.sh | bash
-    apt-get update
-    apt-get install -y openjdk-11-jre-headless
     /usr/local/bin/SimpleServerMock -p 9797 -c /config/mockserver-config.yaml &> /root/mock.log &
   SHELL
 end
