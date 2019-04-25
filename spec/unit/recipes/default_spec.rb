@@ -5,7 +5,6 @@
 # Copyright:: 2018, BaritoLog.
 
 require 'spec_helper'
-require_relative '../../../libraries/yggdrasil'
 
 describe 'zookeeper::default' do
   context 'When all attributes are default, on Ubuntu 16.04' do

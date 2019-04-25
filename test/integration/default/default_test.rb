@@ -53,6 +53,8 @@ end
 
 describe file('/opt/zookeeper/conf/zoo.cfg') do
   its('mode') { should cmp '0644' }
+  its('content') { should match /zookeeper-01-ubuntu-1804\.vagrantup\.com/}
+  its('content') { should match /zookeeper-02-ubuntu-1804\.vagrantup\.com/}
 end
 
 describe file('/opt/zookeeper/conf/log4j.properties') do
