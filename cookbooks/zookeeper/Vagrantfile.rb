@@ -64,9 +64,9 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    curl -s https://raw.githubusercontent.com/BaritoLog/cx-scripts/master/vagrant-ubuntu-install-mockserver.sh | bash
-    apt-get update
-    apt-get install -y openjdk-11-jre-headless
-    /usr/local/bin/SimpleServerMock -p 9797 -c /config/mockserver-config.yaml &> /root/mock.log &
+    mkdir /opt/yggdrasil
+    echo '{
+  "zookeeper_hosts": "[{\\"hostname\\":\\"zookeeper-01-ubuntu-1804.vagrantup.com\\",\\"ip\\":\\"0.0.0.0\\"},{\\"hostname\\":\\"zookeeper-02-ubuntu-1804.vagrantup.com\\",\\"ip\\":\\"0.0.0.0\\"}]"
+}' > /opt/yggdrasil/yggdrasil.json
   SHELL
 end
