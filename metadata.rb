@@ -21,3 +21,4 @@ source_url 'https://github.com/BaritoLog/zookeeper-cookbook'
 
 depends 'ark'
 depends 'consul'
+depends 'hostsfile'

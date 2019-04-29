@@ -1,6 +1,11 @@
 ---
 driver:
   name: vagrant
+  provision: true
+  vagrantfiles:
+    - Vagrantfile.rb
+  synced_folders:
+    - ["config", "/config"]
 
 provisioner:
   name: chef_zero
@@ -36,5 +41,9 @@ suites:
         hosts: ['zookeeper-01-ubuntu-1804.vagrantup.com', 'zookeeper-02-ubuntu-1804.vagrantup.com']
         my_id: <%= idx + 1 %>
         package_retries: 1
+        yggdrasil:
+          enabled: true
+          config_dir: '/opt/yggdrasil'
+          configure_etc_hosts: false
   <% end %>
 <% end %>

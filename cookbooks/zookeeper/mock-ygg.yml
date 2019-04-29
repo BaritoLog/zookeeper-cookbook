@@ -1,0 +1,15 @@
+configs:
+  - path: /v2/configurations/zookeeper_service/latest
+    content: >
+      {
+        "success": true,
+        "data": {
+          "zookeeper_hosts": "[{\"hostname\":\"localhost\",\"ip\":\"127.0.0.1\"}]"
+        }
+      }
+    contentType: application/json
+    statusCode: 200
+  - path: /ping
+    content: pong
+    contentType: application/json
+    statusCode: 200
