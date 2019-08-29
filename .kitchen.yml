@@ -31,11 +31,16 @@ suites:
   <% ("01".."#{n}").each_with_index do |i, idx| %>
   - name: <%= name %>-<%= i %>
     run_list:
+      - recipe[consul::default]
       - recipe[zookeeper::default]
+      - recipe[zookeeper::consul_register]
     verifier:
       inspec_tests:
         - test/integration/default
     attributes:
+      consul:
+        run_as_server: false
+        hosts: ["127.0.0.1"]
       zookeeper:
         role: zookeeper
         hosts: ['zookeeper-01-ubuntu-1804.vagrantup.com', 'zookeeper-02-ubuntu-1804.vagrantup.com']
