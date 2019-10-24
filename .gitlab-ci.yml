@@ -1,6 +1,5 @@
 stages:
   - validate
-  - test
   - build-base
 
 variables:
@@ -10,7 +9,7 @@ variables:
   IMAGE_REGISTRY: "barito-registry"
   COOKBOOK_PATHS: "./cookbooks"
   BUILDERS_IMAGE: "ubuntu-minimal:18.04"
-  TEMPLATE_FILE: "/packer.json"
+  TEMPLATE_FILE: "./packer.json"
 
 before_script:
   - curl -s https://raw.githubusercontent.com/BaritoLog/cx-scripts/master/gitlabci-install-packer.sh | bash
