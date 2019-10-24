@@ -15,14 +15,14 @@ variables:
 before_script:
   - curl -s https://raw.githubusercontent.com/BaritoLog/cx-scripts/master/gitlabci-install-packer.sh | bash
 
-validate:
+validate-image:
   stage: validate
   script:
     - ./packer/packer validate $TEMPLATE_FILE
   tags:
     - bionic
 
-build-base:
+build-base-image:
   stage: build-base
   script:
     - curl -s https://raw.githubusercontent.com/BaritoLog/cx-scripts/master/gitlabci-build-base.sh | bash
