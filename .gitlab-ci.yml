@@ -5,7 +5,7 @@ stages:
 variables:
   BUILD_VERSION: "$CI_COMMIT_TAG"
   BUILD_COMMIT_SHA: "$CI_COMMIT_SHA"
-  OUTPUT_IMAGE: "lxd-zookeeper-$CI_COMMIT_TAG"
+  OUTPUT_IMAGE: "lxd-ubuntu-minimal-zookeeper-$CI_COMMIT_TAG"
   IMAGE_REGISTRY: "barito-registry"
   COOKBOOK_PATHS: "./cookbooks"
   BUILDERS_IMAGE: "ubuntu-minimal:18.04"
