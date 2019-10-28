@@ -23,10 +23,12 @@
     {
       "type": "chef-solo",
       "cookbook_paths": ["{{user `cookbook_paths`}}"],
-      "run_list": ["recipe[consul::default]", "recipe[zookeeper::default]", "recipe[zookeeper::consul_register]"],
+      "run_list": ["recipe[zookeeper::default]"],
       "json": {
-        "consul": {
-          "run_as_server": false
+        "zookeeper": {
+          "java": {
+            "ubuntu": "openjdk-8-jdk-headless"
+          }
         }
       }
     }
