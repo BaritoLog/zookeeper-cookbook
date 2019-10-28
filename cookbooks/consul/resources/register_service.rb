@@ -1,6 +1,6 @@
 property :name,       String, name_property: true
-property :config,     Hash, default: {}
-property :checks,     Array, default: []
+property :config,     Hash,   default: {}
+property :checks,     Array,  default:[] 
 property :config_dir, String, required: true
 property :user,       String, default: 'consul'
 property :group,      String, default: 'consul'
@@ -19,8 +19,7 @@ action :run do
     mode '0640'
   end
 
-  # Reload consul
   execute "reload consul" do
-    command "#{new_resource.consul_bin} reload"
+    command "sleep 5; #{new_resource.consul_bin} reload"
   end
 end

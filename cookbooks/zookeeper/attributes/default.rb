@@ -111,8 +111,12 @@ default[cookbook_name]['jvm_opts'] = {
 }
 
 # Attributes for registering this service to consul
-default[cookbook_name]['consul']['config_dir'] = '/opt/consul/etc'
 default[cookbook_name]['consul']['bin'] = '/opt/bin/consul'
+default[cookbook_name]['consul']['config_dir'] = '/opt/consul/etc'
+default['consul']['cli_opts'] = {
+  'config-dir' => default[cookbook_name]['consul']['config_dir'],
+  'enable-script-checks' => nil
+}
 
 # Configure retries for the package resources, default = global default (0)
 # (mostly used for test purpose)

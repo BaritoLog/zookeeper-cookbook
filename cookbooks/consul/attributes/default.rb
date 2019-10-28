@@ -91,3 +91,7 @@ default[cookbook_name]['systemd_unit'] = {
 # Configure retries for the package resources, default = global default (0)
 # (mostly used for test purpose)
 default[cookbook_name]['package_retries'] = nil
+
+# configure dns consul
+default[cookbook_name]['resolved']['dns_host'] = '127.0.0.1'
+default[cookbook_name]['resolved']['domain'] = '~consul'

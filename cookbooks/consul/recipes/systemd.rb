@@ -24,6 +24,6 @@ systemd_unit 'consul.service' do
   static false
   content unit
   triggers_reload true
-  action %i[create enable start]
+  action %i[create enable start restart]
 end
 
