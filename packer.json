@@ -23,7 +23,7 @@
     {
       "type": "chef-solo",
       "cookbook_paths": ["{{user `cookbook_paths`}}"],
-      "run_list": ["recipe[zookeeper::default]"]
+      "run_list": ["recipe[consul::default]", "recipe[zookeeper::default]", "recipe[zookeeper::consul_register]"]
     }
   ]
 }
