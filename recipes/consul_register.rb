@@ -6,7 +6,7 @@
 #
 #
 tags = node.default[cookbook_name]['consul']['tags']
-tags << "#{node[cookbook_name]['my_id']]"
+tags << "#{node[cookbook_name]['my_id']}"
 
 config = {
   "id": "#{node['hostname']}-zookeeper",
